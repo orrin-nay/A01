@@ -17,7 +17,7 @@ public class Percolation {
 	private int rowLength; //this is the length of a row of the grid. This also happens to be the length of a column, only because this code only creates grids of equal length and hight.  
 	private int singleTopBlock; //this is the position in the array of the single top block. (second to last in the array).
 	private int singleBottomBlock; //this is the position in the array of the single  bottom block (very last item in the array).
-	private int openBlocks;
+	private int openBlocks; //this is keeps track of the number of open blocks. (required for the PercolationVisualizer)
 	private int gridSize;
 	public Percolation(int N) { // create NbyN grid, with all sites blocked
 		this.rowLength = N;
@@ -37,7 +37,7 @@ public class Percolation {
 			openBlocks++;
 		}
 	}
-	public boolean isOpen(int i, int j) { // is site (row i, column j) open?
+	public boolean isOpen(int i, int j) { // is site (row i, column j) open? //if the block is a 0 it is not open. If it is any other number it is open.
 		int indexValue = this.grid[xyToArray(i,j)];
 		if (indexValue != 0) {
 			return true;
@@ -48,7 +48,7 @@ public class Percolation {
 
 		
 	}
-	public boolean isFull(int i, int j) { // is site (row i, column j) full?
+	public boolean isFull(int i, int j) { // is site (row i, column j) full?  Full is when it has a connection to the top row. 
 			if (perc.connected(this.singleTopBlock, xyToArray(i,j))){
 			return true;
 			}
@@ -58,7 +58,7 @@ public class Percolation {
 		
 	}
 	public boolean percolates() { // does the system percolate?
-		for (int k = 0; k < rowLength; k++) //fixes backwash
+		for (int k = 0; k < rowLength; k++) //fixes backwash. Only connects a block to the bottom block if that block has a connection to the top block
 		{
 			
 			if (perc.connected(this.singleTopBlock, xyToArray(rowLength-1,rowLength-k)))
