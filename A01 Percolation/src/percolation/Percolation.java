@@ -6,7 +6,7 @@ package percolation;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
-//This code greates a grid that starts out Blocked (represented by a zero.) 
+//This code creates a grid that starts out Blocked (represented by a zero.) 
 //This code figures out if the top of the grid is connected to the bottom of the grid by open blocks.
 //Open blocks are block in the grid that equal 1 or are open they are not full by default.
 //If an open block has an open path to the blocks touching the top grid it is considered full. 
