@@ -67,9 +67,9 @@ public class PercolationStats {
 	}
 	public String toString() {
 		return "Percolation Stats for a grid " + this.N + 
-				"X" + this.N + " at " + this.T + " itterations.";
+				"X" + this.N + " at " + this.T + " iterations.";
 	}
 	public static void main(String args[]) {
-		new PercolationStats(200, 100000);
+		new PercolationStats(200, 10000);
 	}
 }
